@@ -2,11 +2,6 @@
 
 Dev Stack Builder is a responsive website for exploring development technologies and creating a personal stack from the tools you want to use.
 
-## Project Links
-
-- **Live Site:** [Add your deployed website URL here](https://your-live-site-url.example)
-- **GitHub Repository:** [Add your GitHub repository URL here](https://github.com/your-username/your-repository)
-
 > Replace both example URLs with your actual links before submitting.
 
 ## Technologies Used
