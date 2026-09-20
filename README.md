@@ -2,7 +2,6 @@
 
 Dev Stack Builder is a responsive website for exploring development technologies and creating a personal stack from the tools you want to use.
 
-> Replace both example URLs with your actual links before submitting.
 
 ## Technologies Used
 
