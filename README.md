@@ -1,99 +1,211 @@
-# Dev Stack Builder
+# 💪 FitLog
 
-Dev Stack Builder is a responsive website for exploring development
-technologies and creating a personal stack from the tools you want to
-use.
+FitLog is a modern, dark-themed workout library and daily workout
+planning application built for people who want to train with intent and
+keep track of their workouts.
+
+Browse workouts, view detailed exercise information, add workouts to
+today's plan, save workouts for later, and manage your daily training
+plan from one place.
 
 ## 🚀 Live Demo
 
-[View Live Project](https://assignment005-drab.vercel.app)
+[View Live Project](https://assignment06-bay.vercel.app)
 
 ## 📦 GitHub Repository
 
-[View Source Code](https://github.com/im-asam/assignment005)
-
-## 🛠️ Technologies Used
-
--   React
--   TypeScript
--   Vite
--   Tailwind CSS v4
--   React Toastify
--   React Icons
--   JSON data fetching
+[View Source Code](https://github.com/im-asam/assignment06)
 
 ## ✨ Features
 
--   Browse 14 technologies loaded from `public/data.json`.
--   Build a personalised stack with duplicate prevention.
--   Remove individual technologies from the selected stack.
--   Remove all selected technologies at once.
--   Get toast notifications for stack actions.
--   Responsive layout for desktop, tablet, and mobile devices.
+-   🏋️ **Workout Library** --- Browse all available workouts from the
+    FitLog API.
+-   🔎 **Workout Details** --- View equipment, difficulty, sets, reps,
+    duration, calories, rating, description, and instructions.
+-   📋 **Today's Plan** --- Add up to five workouts to your daily
+    workout plan.
+-   ❤️ **Save for Later** --- Save workouts and access them from the
+    Saved tab.
+-   🔔 **Toast Notifications** --- Get feedback when adding, saving,
+    removing, or completing workouts.
+-   📊 **Plan Metrics** --- Track total exercises, workout minutes, and
+    calories.
+-   🔃 **Sorting** --- Sort workouts by duration, calories, or rating.
+-   ✅ **Mark as Done** --- Mark planned workouts as completed.
+-   🗑️ **Remove Workouts** --- Remove workouts from Today's Plan or
+    Saved.
+-   💾 **Local Storage Persistence** --- Plan and saved workouts remain
+    available after page reload.
+-   📱 **Responsive Design** --- Optimized for desktop, tablet, and
+    mobile devices.
+-   ❌ **Custom 404 Page** --- Handles invalid and unknown routes
+    gracefully.
+-   ⏳ **Loading State** --- Shows loading feedback while workout data
+    is being fetched.
+
+## 🛠️ Technologies Used
+
+-   Next.js
+-   React
+-   JavaScript
+-   CSS
+-   Next.js App Router
+-   React Context API
+-   react-hot-toast
+-   REST API
+-   localStorage
 
 ## 📦 Dependencies
 
-The project uses the following main dependencies and development tools:
+### Dependencies
 
+-   Next.js
 -   React
 -   React DOM
--   TypeScript
--   Vite
+-   React Hot Toast
+
+### Development Dependencies
+
 -   Tailwind CSS
--   React Toastify
--   React Icons
+-   @tailwindcss/postcss
+-   ESLint
+-   eslint-config-next
+
+## 🔌 API
+
+FitLog uses the FitLog Workout API to load workout data.
+
+### All Workouts
+
+https://api.abcz.workers.dev/api/fitlog
+
+### Single Workout
+
+https://api.abcz.workers.dev/api/fitlog/:id
+
+The API provides workout information such as:
+
+-   Workout name
+-   Image
+-   Muscle groups
+-   Equipment
+-   Difficulty
+-   Duration
+-   Calories
+-   Sets
+-   Reps
+-   Rating
+-   Description
+-   Instructions
+
+## 📄 Main Pages
+
+### 🏠 Home
+
+`/`
+
+Contains the navigation bar, hero section, workout library, workout
+cards, loading state, and footer.
+
+### 🏋️ Workout Details
+
+`/exercise/:id`
+
+Displays detailed workout information with options to add the workout to
+Today's Plan or save it for later.
+
+### 📋 My Plan
+
+`/my-plan`
+
+Contains Today's Plan and Saved tabs, workout metrics, sorting, workout
+details, mark-as-done functionality, and remove functionality.
+
+### 📋 Today's Plan
+
+Today's Plan allows users to:
+
+-   Add workouts to their daily plan
+-   Keep a maximum of 5 workouts
+-   See total exercises
+-   See total workout duration
+-   See total calories
+-   Mark workouts as completed
+-   Remove workouts
+-   Receive toast feedback
+
+## 💾 Data Persistence
+
+FitLog uses browser localStorage to persist:
+
+-   Today's Plan workouts
+-   Saved workouts
+
+This allows the selected workouts to remain available after refreshing
+the page.
+
+## 📱 Responsive Design
+
+The application is designed to work across:
+
+-   Desktop
+-   Laptop
+-   Tablet
+-   Mobile
+
+The layout, navigation, workout cards, exercise details, buttons, and
+footer adapt to different screen sizes.
 
 ## 📁 Project Structure
 
 ``` text
-assignment005/
+fitlog/
+├── app/
+│   ├── exercise/
+│   │   └── [id]/
+│   │       └── page.js
+│   ├── my-plan/
+│   │   └── page.js
+│   ├── not-found.js
+│   ├── globals.css
+│   ├── layout.js
+│   └── page.js
+│
+├── components/
+│   ├── Footer.jsx
+│   ├── Library.jsx
+│   └── Navbar.jsx
+│
+├── context/
+│   └── PlanContext.jsx
+│
+├── data/
+│   ├── exercises.js
+│   └── workouts.js
+│
+├── utils/
+│   └── api.js
+│
 ├── public/
-│   └── data.json
+│   └── assets/
 │
-├── src/
-│   ├── assets/
-│   │   ├── banner-stack.png
-│   │   └── logo-text.png
-│   │
-│   ├── components/
-│   │   ├── Footer.tsx
-│   │   ├── Hero.tsx
-│   │   ├── MainLayout.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Sidebar.tsx
-│   │   ├── TechCard.tsx
-│   │   └── TechList.tsx
-│   │
-│   ├── App.tsx
-│   ├── index.css
-│   ├── main.tsx
-│   ├── styles.css
-│   └── types.ts
-│
-├── index.html
+├── next.config.mjs
 ├── package.json
-├── package-lock.json
-├── tsconfig.json
-├── tsconfig.app.json
-├── tsconfig.node.json
-├── vite.config.ts
-├── eslint.config.js
-├── .gitignore
 └── README.md
 ```
 
-## ⚙️ Run Locally
+## ⚙️ Getting Started
 
 ### 1. Clone the repository
 
 ``` bash
-git clone https://github.com/im-asam/assignment005.git
+git clone https://github.com/im-asam/assignment06.git
 ```
 
 ### 2. Open the project
 
 ``` bash
-cd assignment005
+cd assignment06
 ```
 
 ### 3. Install dependencies
@@ -108,54 +220,33 @@ npm install
 npm run dev
 ```
 
-## 🏗️ Production Build
+Then open:
+
+``` text
+http://localhost:3000
+```
+
+## 🏗️ Build for Production
 
 ``` bash
 npm run build
 ```
 
-## ⚛️ React Questions
+To start the production server:
 
-### What is JSX, and why is it used in React?
+``` bash
+npm start
+```
 
-JSX is syntax that lets us describe UI with HTML-like elements inside
-JavaScript or TypeScript. React uses it to make component structure
-easier to read and compose.
+## 🎯 Assignment
 
-### What is the difference between props and state?
+This project was created for **Programming Hero --- Assignment-006:
+FitLog**.
 
-Props are values passed from a parent component to a child component.
-State is data managed inside a component that can change over time and
-trigger a re-render.
-
-### What does the useState hook do, and where did you use it in this project?
-
-`useState` stores changing values in a function component. This project
-uses it for technology data, the selected stack, loading, and fetch
-errors.
-
-### What does the useEffect hook do, and why did you need it to load the JSON data?
-
-`useEffect` runs side effects after rendering. It loads `data.json` once
-when the App component mounts, then updates the technology state.
-
-### Why does every item in a map list need a unique key prop?
-
-A unique key helps React identify the same list item between renders, so
-it can update the UI efficiently and correctly.
-
-### What is conditional rendering?
-
-Conditional rendering shows different UI based on a condition. For
-example, this site shows a loading message while data is fetched, an
-empty message when no stack items exist, and a disabled button when a
-technology was added.
-
-### How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
-
-The parent passes data and callback functions through props. A child
-calls a callback prop, such as `handleAddToStack`, to request that the
-parent update its state.
+The project includes the required workout library, dynamic workout
+details, Today's Plan, Saved functionality, responsive design, loading
+state, toast notifications, custom 404 page, localStorage persistence,
+sorting, mark-as-done, remove functionality, and deployment.
 
 ## 👨‍💻 Author
 
