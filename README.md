@@ -2,6 +2,10 @@
 
 A responsive React app for exploring technologies and building a personal tech stack. Browse a library of technologies, add the ones you want to your stack, and manage it from one place.
 
+## Live Demo
+
+[View Live Project](https://assignment005-drab.vercel.app/)
+
 ## Features
 
 - **Technology Library** — Browse all available technologies loaded from `public/data.json`.
